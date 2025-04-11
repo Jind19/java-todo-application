@@ -5,10 +5,10 @@ import java.util.*;
 public class TaskManager {
     private final List<Task> tasks = new ArrayList<>();
 
-    public void addTask(String title) {
-        Task task = new Task(title);
+    public void addTask(String title, String priority) {
+        Task task = new Task(title, priority);
         tasks.add(task);
-        System.out.println("Added: " + title);
+        System.out.println("Added: " + title + "[" + priority + "]");
     }
 
     public void listTasks() {
@@ -19,7 +19,8 @@ public class TaskManager {
 
         System.out.println("Your Tasks:");
         for (int i = 0; i < tasks.size(); i++) {
-            System.out.printf("%d. %s%n", i + 1, tasks.get(i));
+            Task task = tasks.get(i);
+            System.out.printf("%d. %s (Priority: %s) %n", i + 1, task, task.getPriority());
             /*
              * System.out.printf("%d. %s%n", i + 1, tasks.get(i));
              * printf: print format
